@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BukuController;
+use App\Http\Controllers\Api\PengarangController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,11 @@ Route::prefix('/v1')->group(function () {
     Route::get("/buku/{id}", [BukuController::class, "show"]);
     Route::put("/buku/{id}", [BukuController::class, "update"]);
     Route::delete("/buku/{id}", [BukuController::class, "destroy"]);
+
+    // pengarang
+    Route::get("/pengarang", [PengarangController::class, "index"]);
+    Route::post('/pengarang', [PengarangController::class, "store"]);
+    Route::get("/pengarang/{id}", [PengarangController::class, "show"]);
+    Route::put("/pengarang/{id}", [PengarangController::class, "update"]);
+    Route::delete("/pengarang/{id}", [PengarangController::class, "destroy"]);
 });
